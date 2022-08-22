@@ -1,24 +1,22 @@
 import logo from './logo.svg';
+import Products from './components/products';
 import './App.css';
+import { useState } from 'react';
 
 function App() {
+  const [category,setCategory]=useState("")
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <header className="App-header">Available Products</header>
+    <select onChange={(e) => setCategory(e.target.value)} >
+      <option value={""} >select</option>
+      <option value={"electronics"} >Electronics</option>
+      <option value={"jewelery"} >jewelery</option>
+      <option value={"men's clothing"} >men's clothing</option>
+      <option value={"women's clothing"} >women's clothing</option>
+    </select>
+    <Products category={category} />
+  </div>
   );
 }
 
